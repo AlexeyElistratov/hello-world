@@ -1,0 +1,15 @@
+-- create table
+CREATE TABLE nomnom(name TEXT, 
+    neighborhood TEXT, 
+    cuisine TEXT, 
+    review INTEGER, 
+    price TEXT, 
+    health TEXT)
+
+-- What are the column names?
+SELECT *
+FROM nomnom;
+
+-- What are the distinct neighborhoods?
+SELECT DISTINCT neighborhood
+FROM nomnom;
