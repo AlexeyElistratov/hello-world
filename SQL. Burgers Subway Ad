@@ -1,1 +1,16 @@
+/*
+Well, the restaurant business has been booming and "Davie’s Burgers"
+is now looking to place a catchy advertisement in the local subway station.
+Help them dig into their orders table to see if there is anything 
+interesting in there for a funny tagline!
+*/
+CREATE TABLE orders (
+  id INTEGER,
+  user_id INTEGER,
+  order_date DATE, 
+  restaurant_id INTEGER, 
+  item_name TEXT, 
+  special_instructions TEXT
+);
+
 
