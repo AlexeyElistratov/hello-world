@@ -45,3 +45,48 @@ SELECT special_instructions
 FROM orders
 WHERE special_instructions IS NOT NULL;
 
+-- Let’s go even further and sort the instructions in alphabetical order (A-Z).
+SELECT special_instructions
+FROM orders
+WHERE special_instructions IS NOT NULL
+ORDER BY special_instructions ASC;
+
+/*
+Now we have a good idea of the list.
+Let’s search for special instructions that have the word ‘sauce’.
+Are there any funny or interesting ones?
+*/
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%sauce%';
+
+-- Let’s search for special instructions that have the word ‘door’.
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%door%';
+
+-- Let’s search for special instructions that have the word ‘box’.
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%box%';
+
+-- Let’s search for all words above in one query: 'sauce', 'door', 'box'.
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%sauce%'
+  OR special_instructions LIKE '%door%'
+  OR special_instructions LIKE '%box%';
+
+/*
+Wow, some of these are marketing gold! But what are their order numbers?
+Instead of just returning the special instructions, also return their
+order ids.
+For more readability:
+    Rename id as ‘#’
+    Rename special_instructions as ‘Notes’
+*/
+SELECT id AS '#', special_instructions AS 'Notes'
+FROM orders
+WHERE special_instructions LIKE '%sauce%'
+  OR special_instructions LIKE '%door%'
+  OR special_instructions LIKE '%box%';
