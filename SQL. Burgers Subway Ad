@@ -18,3 +18,30 @@ SELECT *
 FROM orders
 LIMIT 10;
 
+/*
+How recent is this data?
+Find out all the unique order_date values in this table.
+*/
+SELECT DISTINCT order_date
+FROM orders
+ORDER BY order_date DESC;
+
+/*
+The special_instructions column stores the data where Davie’s Burgers
+customers leave a note for the kitchen or the delivery.
+Instead of selecting all the columns using *, write a query that 
+selects only the special_instructions column.
+Limit the result to 20 rows.
+*/
+SELECT special_instructions
+FROM orders
+LIMIT 20;
+
+/*
+The same query as above, but
+returns all the special instructions that are not empty.
+*/
+SELECT special_instructions
+FROM orders
+WHERE special_instructions IS NOT NULL;
+
