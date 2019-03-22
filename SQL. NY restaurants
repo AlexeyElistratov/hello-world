@@ -4,7 +4,8 @@ CREATE TABLE nomnom(name TEXT,
     cuisine TEXT, 
     review INTEGER, 
     price TEXT, 
-    health TEXT)
+    health TEXT
+);
 
 -- What are the column names?
 SELECT *
