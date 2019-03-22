@@ -13,4 +13,8 @@ CREATE TABLE orders (
   special_instructions TEXT
 );
 
+-- Start by getting a feel for the orders table:
+SELECT *
+FROM orders
+LIMIT 10;
 
