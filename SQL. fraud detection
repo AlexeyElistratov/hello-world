@@ -41,4 +41,26 @@ FROM transaction_data
 WHERE full_name LIKE 'Art Vandelay'
   OR full_name LIKE '% der %';
   
-  
+/*
+There are some irregularities in the IP addresses where transactions 
+are originating from.
+For example, any IP address beginning with ‘10.’ is reserved for
+internal use.
+We shouldn’t see IP addresses like this accessing Reputable Company’s service.
+Find the ip_addresses and emails listed with these transactions.
+*/
+SELECT ip_address, email
+FROM transaction_data
+WHERE ip_address LIKE '10.%';
+
+/*
+Users are making fraudulent transactions using a temporary email address
+service. These services provide a short-lived email that can be verified
+and then self-destructs.
+Find the emails in transaction_data with ‘temp_email.com’ as a domain.
+*/
+SELECT email
+FROM transaction_data
+WHERE email LIKE '%temp_email.com';
+
+
