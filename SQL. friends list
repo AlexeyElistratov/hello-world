@@ -1,5 +1,5 @@
 CREATE TABLE friends (
-		id INTEGER,
+    id INTEGER,
     name TEXT,
     birthday DATE
 );
