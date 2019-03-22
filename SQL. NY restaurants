@@ -1,5 +1,6 @@
 -- create table
-CREATE TABLE nomnom(name TEXT, 
+CREATE TABLE nomnom (
+    name TEXT, 
     neighborhood TEXT, 
     cuisine TEXT, 
     review INTEGER, 
