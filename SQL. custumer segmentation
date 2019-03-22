@@ -63,3 +63,8 @@ SELECT email, campaign
 FROM users
 WHERE campaign LIKE '%-2';
 
+-- Find the emails for all users who received both a campaign and a test. 
+SELECT email, campaign, test
+FROM users
+WHERE campaign IS NOT NULL
+  AND test IS NOT NULL;
