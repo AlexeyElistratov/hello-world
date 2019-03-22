@@ -69,5 +69,5 @@ Can you find the transaction?
 */
 SELECT *
 FROM transaction_data
-WHERE ip_address LIKE '120.%'
-  AND full_name LIKE 'John%';
+WHERE full_name LIKE 'John%'
+  AND ip_address LIKE '120.%';
