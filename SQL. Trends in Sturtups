@@ -6,3 +6,19 @@ that contains a table called startups. It is a portfolio of some of the biggest 
 Write queries with aggregate functions to retrieve some interesting insights about these companies.
 */
 
+-- Getting started, take a look at the startups table
+SELECT *
+FROM startups;
+
+-- Calculates the total number of companies in the table
+SELECT COUNT(name) AS 'Number_of_companies'
+FROM startups;
+
+-- We want to know the total value of all companies in this table
+SELECT SUM(valuation) AS 'Total_value'
+FROM startups;
+
+-- What is the highest amount raised by a startup?
+SELECT MAX(raised) AS 'MAX_raised'
+FROM startups;
+
