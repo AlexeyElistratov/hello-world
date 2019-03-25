@@ -31,9 +31,11 @@ WHERE stage = 'Seed';
 SELECT MIN(founded) AS 'Oldest_company_founded_in'
 FROM startups;
 
+
 /*
 Let's find out the valuations among different sectors:
 */
+
 -- Returns the average valuation
 SELECT AVG(valuation)
 FROM startups;
@@ -46,4 +48,46 @@ Lastly, orders the list from highest averages to lowest.
 SELECT category, ROUND(AVG(valuation),2)
 FROM startups
 GROUP BY 1
-ORDER BY 2 DESC;;
+ORDER BY 2 DESC;
+
+
+/*
+What are the most competitive markets?
+*/
+
+/*
+Returns the name of each category with the total number of companies that belong to it.
+*/
+SELECT category, COUNT(*)
+FROM startups
+GROUP BY category;
+
+/*
+Next, filter the result to only include categories that 
+have more than three companies in them.
+What are the most competitive markets? (Answer: "Social = 12")
+*/
+SELECT category, COUNT(*) AS 'Number_of_companies'
+FROM startups
+GROUP BY category
+HAVING Number_of_companies > 3;
+
+/*
+Let's see if there's a difference in startups sizes among different locations:
+*/
+
+/*
+What is the average size of a startup in each location?
+*/
+SELECT location, AVG(employees) AS 'Average_valuation'
+FROM startups
+GROUP BY location;
+
+/*
+What is the average size of a startup in each location, with average sizes above 500?
+*/
+SELECT location, AVG(employees) AS 'Average_valuation'
+FROM startups
+GROUP BY location
+HAVING Average_valuation > 500;
+
