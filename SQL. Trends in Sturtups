@@ -22,3 +22,28 @@ FROM startups;
 SELECT MAX(raised) AS 'MAX_raised'
 FROM startups;
 
+-- Returns the maximum amount of money raised, during ‘Seed’ stage.
+SELECT MAX(raised) AS 'MAX_raised_on_seed_stage'
+FROM startups
+WHERE stage = 'Seed';
+
+-- In what year was the oldest company on the list founded?
+SELECT MIN(founded) AS 'Oldest_company_founded_in'
+FROM startups;
+
+/*
+Let's find out the valuations among different sectors:
+*/
+-- Returns the average valuation
+SELECT AVG(valuation)
+FROM startups;
+
+/*
+Returns the average valuation, in each category.
+Rounds the averages to two decimal places.
+Lastly, orders the list from highest averages to lowest.
+*/
+SELECT category, ROUND(AVG(valuation),2)
+FROM startups
+GROUP BY 1
+ORDER BY 2 DESC;;
