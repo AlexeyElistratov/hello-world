@@ -90,4 +90,3 @@ SELECT location, AVG(employees) AS 'Average_valuation'
 FROM startups
 GROUP BY location
 HAVING Average_valuation > 500;
-
