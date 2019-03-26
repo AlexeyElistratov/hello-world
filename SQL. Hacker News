@@ -18,8 +18,6 @@ CREATE TABLE hacker_news (
   url TEXT 
 );
 
-
-
 /*
 Oh no! While we are looking at the power users, some users are
 rickrolling — tricking readers into clicking on a link to a funny video
@@ -35,3 +33,19 @@ FROM hacker_news
 WHERE url LIKE '%watch?v=dQw4w9WgXcQ%'
 GROUP BY 1
 ORDER BY 2 DESC;
+
+/*
+Hacker News stories are essentially links that take users to other websites.
+Which of these sites feed Hacker News the most:
+*GitHub, Medium, or New York Times?*
+(RESULT: GitHub - 23, Medium - 12, New York Times - 13, Other - 3952)
+*/
+SELECT CASE
+    WHEN url LIKE '%github.com%' THEN 'GitHub'
+    WHEN url LIKE '%medium.com%' THEN 'Medium'
+    WHEN url LIKE '%nytimes.com%' THEN 'New York Times'
+    ELSE 'Other'
+    END AS 'Source',
+    COUNT(*)
+FROM hacker_news
+GROUP BY 1;
