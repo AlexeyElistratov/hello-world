@@ -44,9 +44,11 @@ Count the number of pieces where the category includes ‘celery’.
  
  /*
 Find the title and medium of the oldest piece(s) in the collection.
+  
+  SELECT title, medium, MIN(date)
+  FROM met; 
+The result is Betty Lamp 1600-1700.
 */
---SELECT title, medium, MIN(date)
---FROM met;
 SELECT date, title, medium
 FROM met
 WHERE date LIKE '%1600%';
