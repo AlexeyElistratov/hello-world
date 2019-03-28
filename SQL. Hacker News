@@ -62,3 +62,16 @@ SELECT strftime('%H', timestamp),
 FROM hacker_news
 GROUP BY 1
 ORDER BY 1;
+
+/*
+Let’s edit a few things in the previous query:
+1. Rename the columns to make it more readable (AS).
+2. Add a WHERE clause to filter out the NULL values in timestamp
+*/
+SELECT strftime('%H', timestamp) AS 'Hour',
+  ROUND(AVG(score)) AS 'Average Score',
+  COUNT(*) AS 'Number of stories'
+FROM hacker_news
+WHERE Hour IS NOT NULL
+GROUP BY 1
+ORDER BY 1;
