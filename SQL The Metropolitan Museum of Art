@@ -42,4 +42,12 @@ Count the number of pieces where the category includes ‘celery’.
  FROM met
  WHERE category LIKE '%celery%';
  
- 
+ /*
+Find the title and medium of the oldest piece(s) in the collection.
+*/
+--SELECT title, medium, MIN(date)
+--FROM met;
+SELECT date, title, medium
+FROM met
+WHERE date LIKE '%1600%';
+
