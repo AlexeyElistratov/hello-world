@@ -65,3 +65,28 @@ GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 10;
 
+/*
+There are all kinds of American decorative art in the Met’s collection.
+Find the categories HAVING more than 100 pieces.
+*/
+SELECT category, COUNT(*) AS 'Total_pieces'
+FROM met
+GROUP BY 1
+HAVING Total_pieces > 100
+ORDER BY Total_pieces DESC;
+
+/*
+Lastly, let’s look at some bling!
+Count the number of pieces where the medium contains ‘gold’ or ‘silver’.
+And sort in descending order.
+*/
+SELECT CASE
+   WHEN medium LIKE '%gold%'   THEN 'Gold'
+   WHEN medium LIKE '%silver%' THEN 'Silver'
+   ELSE NULL
+  END AS 'Bling', 
+  COUNT(*)
+FROM met
+WHERE Bling IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;
