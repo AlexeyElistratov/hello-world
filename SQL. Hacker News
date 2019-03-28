@@ -49,3 +49,16 @@ SELECT CASE
     COUNT(*)
 FROM hacker_news
 GROUP BY 1;
+
+/*
+Okay, now we understand how strftime() works. Let’s write a query that returns three columns:
+    1. The hours of the timestamp
+    2. The average score for each hour
+    3. The count of stories for each hour
+*/
+SELECT strftime('%H', timestamp),
+  ROUND(AVG(score),2),
+  COUNT(*)
+FROM hacker_news
+GROUP BY 1
+ORDER BY 1;
