@@ -53,3 +53,15 @@ SELECT date, title, medium
 FROM met
 WHERE date LIKE '%1600%';
 
+/*
+Not every American decoration is from the Americas… where are they 
+are coming from?
+Find the top 10 countries with the most pieces in the collection.
+*/
+SELECT country, COUNT(*)
+FROM met
+WHERE country IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
